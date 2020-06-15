@@ -1,0 +1,41 @@
+<section>
+  <!-- Sort and Search of feed list -->
+  <div class="feed-actions">
+    <div class="search-wrap">
+      <app-input-box></app-input-box>
+    </div>
+    <div class="sort-wrap">
+      <app-sort-by [sortOptions]="sortOptions"></app-sort-by>
+    </div>
+  </div>
+  <!-- Display feed list -->
+  <div class="cards" *ngIf="feeds?.length">
+    <div class="card" *ngFor="let feed of feeds">
+      <div class="image">
+        <img data-src="{{feed.image}}" src="{{feed.image}}"
+          srcset="{{feed.image}} 300w, {{feed.image}} 700w, {{feed.image}} 1000w"
+          sizes="(max-width: 700px) 100vw, (max-width: 900px) 50vw, 33vw"
+          alt="feed image">
+      </div>
+      <div class="content">
+        <p class="title">{{feed.name}}</p>
+        <p class="description">{{feed.description}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-records" *ngIf="!hasRecords">
+    <p>No records to show</p>
+  </div>
+  <!-- Pagination footer -->
+  <div class="feed-footer" *ngIf="feeds?.length">
+    <app-paginate [hidden]="!hasRecords" (onPageSizeChange)="updateItems($event)" (hasRecords)="checkRecords($event)"
+                  [displayItems]="feedData"
+                  [items]="feedData"></app-paginate>
+  </div>
+  <!-- Feeds in table format -->
+  <div class="feed-table">
+    <h3>Feed Table</h3>
+    <app-data-table [items]="feedData"></app-data-table>
+  </div>
+</section>

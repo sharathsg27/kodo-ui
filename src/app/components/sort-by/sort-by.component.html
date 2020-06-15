@@ -1,0 +1,6 @@
+<div class="select-dropdown">
+  <select class="page-size__select" aria-label="sort feeds" [(ngModel)]="selectedValue" (ngModelChange)="setSelectedValue();">
+    <option value="" disabled>Sort by</option>
+    <option *ngFor="let option of sortOptions" [value]="option.key">{{option.displayName}}</option>
+  </select>
+</div>

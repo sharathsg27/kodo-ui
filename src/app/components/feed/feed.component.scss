@@ -1,0 +1,114 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-height: 60vh;
+  overflow-y: scroll;
+  margin: 1rem 2rem 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
+  transition: box-shadow .5s;
+  margin: 24px 8px;
+  position: relative;
+  border: none;
+  flex: 1 100%;
+
+  .image {
+    max-height: 100%;
+    max-width: 100%;
+    img {
+      background: #F1F1FA;
+      width: 100%;
+      min-height: 310px;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin: 8px;
+
+    .title {
+      margin: 5px 0 10px 0;
+      color: #444;
+      font-weight: 600;
+    }
+    .description {
+      overflow-y: scroll;
+      color: #444;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 8px 8px rgba(10,16,20,.24), 0 0 8px rgba(10,16,20,.12);
+  }
+}
+
+.feed-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+  box-shadow: 0 2px 6px -3px rgba(10, 16, 20, 0.24), 0 0 2px rgba(10, 16, 20, 0.12);
+
+  .search-wrap {
+    display: flex;
+    flex-direction: row;
+    flex: 1 50%;
+  }
+
+  .sort-wrap {
+    @extend .search-wrap;
+    justify-content: flex-end;
+  }
+}
+
+.feed-footer {
+  box-shadow: 0 2px 6px -3px rgba(10, 16, 20, 0.24), 0 0 2px rgba(10, 16, 20, 0.12);
+}
+
+.feed-table {
+  margin: 0 2.5rem;
+
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .feed-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    .search-wrap {
+      margin-bottom: 1rem;
+    }
+    .sort-wrap {
+      justify-content: flex-start;
+    }
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  .card {
+    flex: 0 45%;
+    max-width: none;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .card {
+    flex: 0 30%;
+    max-width: none;
+  }
+}
