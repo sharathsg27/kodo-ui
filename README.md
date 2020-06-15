@@ -2,9 +2,13 @@
 
 This Kodo UI assignment was built with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
-## Branch
+## Clone & branch
 
 Please clone the `master` branch from the repository before running the application
+
+## Install dependencies
+
+Run `npm install` from the root to install all the required dependencies to run the application. The dependencies are stored under `node_modules` in the root. Please verify them.
 
 ## Development server
 
